@@ -1,0 +1,6 @@
+[submodule "google-ngrams"]
+	path = google-ngrams
+	url = https://github.com/daviswhitehead/google-ngrams.git
+[submodule "pyBingSearchAPI"]
+	path = pyBingSearchAPI
+	url = https://github.com/daviswhitehead/pyBingSearchAPI.git
