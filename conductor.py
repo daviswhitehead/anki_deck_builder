@@ -19,13 +19,14 @@ Outline:
 
 '''
 
+
 def get_bing_image(bing, query):
 	params = {
 		'$format': 'json',
 		'$top': 10,
 		'$skip': 0
 	}
-	test = bing.search('image', query_string, params).json()
+	test = bing.search('image', query, params).json()
 	for result in test.get('d', {}).get('results', {})[0].get('Image', {}):
 		print '\n', result, '\n'
 
@@ -52,10 +53,11 @@ def main():
 	# print get_word_definition('tribulations')
 	create_word_chart('tribulations')
 
-
-
-
 	sys.exit()
+	dictionaryapi = credentials.read_cfg(
+		credentials.find_pass_cfg(),
+		'dictionaryapi'
+	)
 
 	bing_credentials = credentials.read_cfg(
 		credentials.find_pass_cfg(),
