@@ -4,6 +4,7 @@ import credentials
 from pyBingSearchAPI.bing_search_api import BingSearchAPI
 import subprocess
 import requests
+import shutil
 
 '''
 Outline:
@@ -21,18 +22,25 @@ Outline:
 
 
 def get_bing_image(bing, query):
+	'Imaging...'
 	params = {
 		'$format': 'json',
 		'$top': 10,
 		'$skip': 0
 	}
-	test = bing.search('image', query, params).json()
-	for result in test.get('d', {}).get('results', {})[0].get('Image', {}):
-		print '\n', result, '\n'
+	search_result = bing.search('image', query, params).json()
+	top_image = search_result.get('d', {}).get('results', {})[0].get('Image', {})[0].get('MediaUrl')
+	if top_image:
+		response = requests.get(top_image, stream=True)
+		with open('data/{}/{}_image.png'.format(query, query), 'wb') as out_file:
+			shutil.copyfileobj(response.raw, out_file)
+			del response
+	'done.'
 
 
 def create_word_chart(query):
-	args = [
+	print 'Charting...'
+	ngram_args = [
 		'python',
 		'google-ngrams/getngrams.py',
 		query,
@@ -41,7 +49,8 @@ def create_word_chart(query):
 		'-caseInsensitive',
 		'-endYear=2008'
 	]
-	p = subprocess.call(args)
+	subprocess.call(ngram_args)
+	print 'done.'
 
 
 def get_word_definition(query):
@@ -50,22 +59,34 @@ def get_word_definition(query):
 
 
 def main():
-	# print get_word_definition('tribulations')
-	create_word_chart('tribulations')
-
-	sys.exit()
-	dictionaryapi = credentials.read_cfg(
-		credentials.find_pass_cfg(),
-		'dictionaryapi'
-	)
-
+	# load credentials
+	# dictionaryapi = credentials.read_cfg(
+		# credentials.find_pass_cfg(),
+		# 'dictionaryapi'
+	# )
 	bing_credentials = credentials.read_cfg(
 		credentials.find_pass_cfg(),
 		'bing'
 	)
-	bing = BingSearchAPI(bing_credentials['primary_account_key'])
-	get_bing_image(bing, 'chicanery')
-	create_word_chart('chicanery')
+
+	f = open('words.txt', 'r')
+	wordlist = [x.strip('\n') for x in f.readlines()]
+
+	for word in wordlist:
+		print 'Word: {}'.format(word)
+
+		subprocess.call(['mkdir', 'data/{}'.format(word)])
+
+		# creates a chart of a word's usage overtime
+		# word.png
+		create_word_chart(word)
+
+		# download the first image associated with a word
+		bing = BingSearchAPI(bing_credentials['primary_account_key'])
+		get_bing_image(bing, word)
+
+		print 'done: {}'.format(word)
+		print
 
 
 if __name__ == "__main__":

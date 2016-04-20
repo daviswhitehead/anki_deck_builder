@@ -1,1 +1,48 @@
-ˈtes-tiŋ
+<div class="def-list">
+                                        <section class="def-pbk ce-spot" data-collapse-expand="{&quot;target&quot;: &quot;.def-set&quot;, &quot;type&quot;: &quot;def&quot;}">
+                    <header class="luna-data-header">
+                        <span class="dbox-pg"><span><span class="oneClick-link">adjective</span> </span></span>                    </header>
+
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">1.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">severe</span> <span class="oneClick-link">in</span> <span class="oneClick-link">manner</span> <span class="oneClick-link">or</span> <span class="oneClick-link oneClick-available">appearance;</span> <span class="oneClick-link">uncompromising;</span> <span class="oneClick-link">strict;</span> <span class="oneClick-link">forbidding:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">an</span> <span class="oneClick-link">austere</span> <span class="oneClick-link">teacher.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">2.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">rigorously</span> <span class="oneClick-link">self-disciplined</span> <span class="oneClick-link">and</span> <span class="oneClick-link oneClick-available">severely</span> <span class="oneClick-link">moral;</span> <span class="oneClick-link">ascetic;</span> <span class="oneClick-link">abstinent:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">the</span> <span class="oneClick-link">austere</span> <span class="oneClick-link">quality</span> <span class="oneClick-link">of</span> <span class="oneClick-link">life</span> <span class="oneClick-link">in</span> <span class="oneClick-link">the</span> <span class="oneClick-link">convent.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">3.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">grave;</span> <span class="oneClick-link">sober;</span> <span class="oneClick-link">solemn;</span> <span class="oneClick-link">serious:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">an</span> <span class="oneClick-link">austere</span> <span class="oneClick-link">manner.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">4.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">without</span> <span class="oneClick-link">excess,</span> <span class="oneClick-link">luxury,</span> <span class="oneClick-link">or</span> <span class="oneClick-link">ease;</span> <span class="oneClick-link">simple;</span> <span class="oneClick-link">limited;</span> <span class="oneClick-link">severe:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">an</span> <span class="oneClick-link">austere</span> <span class="oneClick-link">life.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">5.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">severely</span> <span class="oneClick-link">simple;</span> <span class="oneClick-link">without</span> <span class="oneClick-link">ornament:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">austere</span> <span class="oneClick-link">writing.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">6.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">lacking</span> <span class="oneClick-link">softness;</span> <span class="oneClick-link">hard:</span> </span><div class="def-block def-inline-example"><span class="dbox-example"><span><span class="oneClick-link">an</span> <span class="oneClick-link">austere</span> <span class="oneClick-link">bed</span> <span class="oneClick-link">of</span> <span class="oneClick-link">straw.</span></span></span></div>
+                </div>
+</div>
+                                            
+<div class="def-set">
+    <span class="def-number"><span><span class="oneClick-link">7.</span> </span></span>
+    <div class="def-content"><span><span class="oneClick-link">rough</span> <span class="oneClick-link">to</span> <span class="oneClick-link">the</span> <span class="oneClick-link">taste;</span> <span class="oneClick-link">sour</span> <span class="oneClick-link">or</span> <span class="oneClick-link">harsh</span> <span class="oneClick-link">in</span> <span class="oneClick-link">flavor.</span> </span></div>
+</div>
+                                    </section>
+                    </div>
