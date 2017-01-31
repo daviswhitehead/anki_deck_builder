@@ -1,3 +1,5 @@
 vanki_deck_builder/
 *.swp
 *.pyc
+data/
+*.DS
