@@ -67,6 +67,7 @@ def frequency_chart(word, directory):
             )
             file_name = '{}{}_frequency.png'.format(directory, word)
             fig.savefig(file_name)
+            plt.close('all')
 
             return image_html(file_name)
     except Exception as e:

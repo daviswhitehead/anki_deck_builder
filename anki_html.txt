@@ -1,0 +1,43 @@
+.card {
+ font-family: avenir next;
+ font-size: 20px;
+ text-align: left;
+ color: black;
+ background-color: white;
+}
+.word {
+ font-family: avenir next;
+ font-size: 20px;
+ text-align: left;
+ margin: 0px 0px 20px 0px;
+}
+.header {
+ font-family: avenir next;
+ font-size: 16px;
+ text-align: left;
+ margin: 5px 0px 0px 0px;
+ font-weight: bold
+}
+.entry {
+ font-family: avenir next;
+ font-size: 12px;
+ text-align: left;
+ margin: 5px 0px 0px 10px;
+}
+<div class="word">{{word}} | {{syllables}} | {{pronunciation}}</div>
+<div>{{audio}}</div>
+<hr id=answer>
+<div class="header">definitions</div>
+<div class="entry">{{definitions}}</div>
+<div class="header">etymology</div>
+<div class="entry">{{etymology}}</div>
+<div class="header">phrases</div>
+<div class="entry">{{phrases}}</div>
+<div class="header">synonyms</div>
+<div class="entry">{{synonyms}}</div>
+<div class="header">examples</div>
+<div class="entry">{{examples}}</div>
+<div class="header">image</div>
+<div>{{image}}</div>
+<div class="header">frequency</div>
+<div>{{frequency}}</div>
