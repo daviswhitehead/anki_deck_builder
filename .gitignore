@@ -3,3 +3,4 @@ vanki_deck_builder/
 *.pyc
 data/
 *.DS
+.DS*
