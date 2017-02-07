@@ -1,93 +1,51 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*
 import sys
-sys.path.append('/Users/dwhitehead/Documents/github/utils/')
-import credentials
-from pyBingSearchAPI.bing_search_api import BingSearchAPI
-import subprocess
-import requests
-import shutil
-
-'''
-Outline:
-
-1) list of words
-2) get data on words
-	- definitions from wordnet
-	- image from bing
-	- trend from google books
-	- collocations?
-	- other
-3) combine words into flash cards
-
-'''
-
-
-def get_bing_image(bing, query):
-	'Imaging...'
-	params = {
-		'$format': 'json',
-		'$top': 10,
-		'$skip': 0
-	}
-	search_result = bing.search('image', query, params).json()
-	top_image = search_result.get('d', {}).get('results', {})[0].get('Image', {})[0].get('MediaUrl')
-	if top_image:
-		response = requests.get(top_image, stream=True)
-		with open('data/{}/{}_image.png'.format(query, query), 'wb') as out_file:
-			shutil.copyfileobj(response.raw, out_file)
-			del response
-	'done.'
-
-
-def create_word_chart(query):
-	print 'Charting...'
-	ngram_args = [
-		'python',
-		'google-ngrams/getngrams.py',
-		query,
-		'-plot',
-		'-noprint',
-		'-caseInsensitive',
-		'-endYear=2008'
-	]
-	subprocess.call(ngram_args)
-	print 'done.'
-
-
-def get_word_definition(query):
-	r = requests.get('http://wordnetweb.princeton.edu/perl/webwn?s={}'.format(query))
-	print r.text
-
+import get_wordnik_data as wn
+import get_google_data as g
 
 def main():
-	# load credentials
-	# dictionaryapi = credentials.read_cfg(
-		# credentials.find_pass_cfg(),
-		# 'dictionaryapi'
-	# )
-	bing_credentials = credentials.read_cfg(
-		credentials.find_pass_cfg(),
-		'bing'
-	)
+    word_api = wn.get_wordnik_credentials()
 
-	f = open('words.txt', 'r')
-	wordlist = [x.strip('\n') for x in f.readlines()]
+    # setup files
+    files = {
+        'word_list': open('data/word_list.txt', 'r'),
+        'word_data': open('data/word_data.txt', 'w+')
+    }
+    media_directory = 'data/media/'
 
-	for word in wordlist:
-		print 'Word: {}'.format(word)
+    # read word_list
+    word_list = [x.strip('\n') for x in files['word_list'].readlines()]
 
-		subprocess.call(['mkdir', 'data/{}'.format(word)])
+    # setup fields
+    fields = [
+        'word', 'syllables', 'pronunciation', 'etymology', 'definitions',
+        'phrases', 'synonyms', 'examples', 'audio', 'image', 'frequency'
+    ]
+    line = '{' + '}\t{'.join(fields) + '}'
 
-		# creates a chart of a word's usage overtime
-		# word.png
-		create_word_chart(word)
+    # get word data
+    for word in word_list:
+        print 'working on {}\n'.format(word)
+        # write words to text file
+        l = line.format(
+            word=word,
+            syllables=wn.format_hyphenation(word_api, word),
+            pronunciation=wn.format_pronunciation(word_api, word),
+            etymology=wn.format_etymologies(word_api, word),
+            definitions=wn.format_definitions(word_api, word),
+            phrases=wn.format_phrases(word_api, word),
+            synonyms=wn.format_synonyms(word_api, word),
+            examples=wn.format_examples(word_api, word),
+            audio=wn.format_audio(word_api, word),
+            image=g.find_image(word, media_directory),
+            frequency=g.frequency_chart(word, media_directory)
+        )
+        files['word_data'].write('{}\n'.format(l))
 
-		# download the first image associated with a word
-		bing = BingSearchAPI(bing_credentials['primary_account_key'])
-		get_bing_image(bing, word)
-
-		print 'done: {}'.format(word)
-		print
+    for f in files.values():
+        f.close()
 
 
 if __name__ == "__main__":
-	main()
+    main()
